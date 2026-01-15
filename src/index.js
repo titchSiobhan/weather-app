@@ -28,16 +28,17 @@ form.addEventListener('submit', async (e) => {
 	weatherContainer.textContent = '';
     // createWeather()
     const location = document.querySelector('#search-bar').value.trim();
-
+ const searchBar = document.querySelector('#search-bar');
     try {
         const data = await getLocation(location)
         const elements = weatherDisplay(data);
         appendWeather(elements);
-
+     
     } catch (err) {
          console.log('didnt work');
     console.log(err)
     }
+    searchBar.value = '';
 });
 
 function weatherDisplay(data) {
@@ -62,5 +63,3 @@ address.textContent =
 	console.log(data.currentConditions.conditions);
     return { address, tempBox, feelsLike, condition };
 };
-
-
