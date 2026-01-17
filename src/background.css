@@ -1,0 +1,175 @@
+/* NIGHT */
+.night-sunny {
+	--bg-start: #0a1a2f;
+	--bg-end: #001f3f;
+}
+.night-cloudy {
+	--bg-start: #2c3e50;
+	--bg-end: #1b263b;
+}
+.night-rainy {
+	--bg-start: #1c2a33;
+	--bg-end: #0f1a20;
+}
+.night-stormy {
+	--bg-start: #0b0e14;
+	--bg-end: #1a1a2e;
+}
+.night-snowy {
+	--bg-start: #1c2c3a;
+	--bg-end: #2e4057;
+}
+
+/* PRE-SUNRISE */
+.pre-sunrise-sunny {
+	--bg-start: #001f3f;
+	--bg-end: #0a1a2f;
+}
+.pre-sunrise-cloudy {
+	--bg-start: #c9d6df;
+	--bg-end: #aab7c4;
+}
+.pre-sunrise-rainy {
+	--bg-start: #7da0b1;
+	--bg-end: #5f7a87;
+}
+.pre-sunrise-stormy {
+	--bg-start: #5a6a7a;
+	--bg-end: #3b4a57;
+}
+.pre-sunrise-snowy {
+	--bg-start: #e8f1f5;
+	--bg-end: #dff7ff;
+}
+
+/* SUNRISE */
+.sunrise-sunny {
+	--bg-start: #ff9a76;
+	--bg-end: #ffd6a5;
+}
+.sunrise-cloudy {
+	--bg-start: #e3eaf0;
+	--bg-end: #c9d6df;
+}
+.sunrise-rainy {
+	--bg-start: #a7bbc7;
+	--bg-end: #7da0b1;
+}
+.sunrise-stormy {
+	--bg-start: #7c8a96;
+	--bg-end: #5a6a7a;
+}
+.sunrise-snowy {
+	--bg-start: #dff7ff;
+	--bg-end: #e8f1f5;
+}
+
+/* MORNING */
+.morning-sunny {
+	--bg-start: #ffd6a5;
+	--bg-end: #fdfcdc;
+}
+.morning-cloudy {
+	--bg-start: #c9d6df;
+	--bg-end: #e3eaf0;
+}
+.morning-rainy {
+	--bg-start: #a7bbc7;
+	--bg-end: #8ca3af;
+}
+.morning-stormy {
+	--bg-start: #7c8a96;
+	--bg-end: #5a6a7a;
+}
+.morning-snowy {
+	--bg-start: #e8f1f5;
+	--bg-end: #f2fbff;
+}
+
+/* AFTERNOON */
+.afternoon-sunny {
+	--bg-start: #87ceeb;
+	--bg-end: #b5e2fa;
+}
+.afternoon-cloudy {
+	--bg-start: #aab7c4;
+	--bg-end: #dde3e9;
+}
+.afternoon-rainy {
+	--bg-start: #5f7a87;
+	--bg-end: #2e3944;
+}
+.afternoon-stormy {
+	--bg-start: #3b4a57;
+	--bg-end: #2e3944;
+}
+.afternoon-snowy {
+	--bg-start: #cfe8f3;
+	--bg-end: #f2fbff;
+}
+
+/* GOLDEN HOUR */
+.golden-hour-sunny {
+	--bg-start: #ff7f50;
+	--bg-end: #ffb5c2;
+}
+.golden-hour-cloudy {
+	--bg-start: #8a9ba8;
+	--bg-end: #6d7a88;
+}
+.golden-hour-rainy {
+	--bg-start: #4a5c66;
+	--bg-end: #2f3e46;
+}
+.golden-hour-stormy {
+	--bg-start: #2c2e43;
+	--bg-end: #1f2230;
+}
+.golden-hour-snowy {
+	--bg-start: #b5c6d6;
+	--bg-end: #8fa3b8;
+}
+
+/* SUNSET */
+.sunset-sunny {
+	--bg-start: #ff6f91;
+	--bg-end: #845ec2;
+}
+.sunset-cloudy {
+	--bg-start: #6d7a88;
+	--bg-end: #8a9ba8;
+}
+.sunset-rainy {
+	--bg-start: #2f3e46;
+	--bg-end: #1c2a33;
+}
+.sunset-stormy {
+	--bg-start: #1f2230;
+	--bg-end: #0b0e14;
+}
+.sunset-snowy {
+	--bg-start: #8fa3b8;
+	--bg-end: #b5c6d6;
+}
+
+/* POST-SUNSET */
+.post-sunset-sunny {
+	--bg-start: #845ec2;
+	--bg-end: #001f3f;
+}
+.post-sunset-cloudy {
+	--bg-start: #6d7a88;
+	--bg-end: #2c3e50;
+}
+.post-sunset-rainy {
+	--bg-start: #2f3e46;
+	--bg-end: #1c2a33;
+}
+.post-sunset-stormy {
+	--bg-start: #1f2230;
+	--bg-end: #0b0e14;
+}
+.post-sunset-snowy {
+	--bg-start: #8fa3b8;
+	--bg-end: #2e4057;
+}

@@ -1,37 +1,87 @@
-// import { getLocation } from './api.js';
+// import { getBackground} from './api.js';
 
 function fahrenheitToCelsius(num) {
 	return (((num - 32) * 5) / 9).toFixed(2);
 }
 
-// const temp = fahrenheitToCelsius(getLocation.currentConditions.temp);
-// const feelsLikeTemp = fahrenheitToCelsius(getLocation.currentConditions.feelslike);
 
-// const showWeather = document.createElement('div');
-// const address = document.createElement('h1');
-// const tempBox = document.createElement('div');
-// const feelsLike = document.createElement('div');
-// const condition = document.createElement('div');
-// function createWeather(getLocation) {
-// 	address.textContent =
-// 		getLocation.address.charAt(0).toUpperCase() + getLocation.address.slice(1);
 
-// 	if (switchBox.checked) {
-// 		tempBox.textContent = `Temperature: ${getLocation.currentConditions.temp}`;
-// 		feelsLike.textContent = `Feels Like: ${getLocation.currentConditions.feelslike}`;
-// 	} else {
-// 		tempBox.textContent = `Temperature: ${temp}`;
-// 		feelsLike.textContent = `Feels Like: ${feelsLikeTemp}`;
+class weatherIcons {
+	constructor(name, iconClass){
+		this.name = name;
+		this.icon = document.createElement('i');
+		this.icon.className = iconClass;
+	}
+	
+	
+}
+
+const weatherIconsList = [];
+
+
+	const cloudy = new weatherIcons('cloudy', 'fa-solid fa-cloud');
+	const clearDay = new weatherIcons('clear-day', 'fa-solid fa-sun');
+	const rain = new weatherIcons('rain', 'fa-solid fa-cloud-showers-heavy');
+	const snow = new weatherIcons('snow', 'fa-regular fa-snowflake');
+	const clearNight = new weatherIcons('clear-night', 'fa-solid fa-moon');
+	const storm = new weatherIcons('ThunderStorm', 'fa-solid fa-cloud-bolt');
+	const fog = new weatherIcons('fog', 'fa-solid fa-smog');
+	const wind = new weatherIcons('wind', 'fa-solid fa-wind');
+	const partlyCloudyDay = new weatherIcons('partly-cloudy-day', 'fa-solid fa-cloud-sun');
+	const partlyCloudyNight =new weatherIcons('partly-cloudy-night', 'fa-solid fa-cloud-moon');
+	
+
+
+
+	weatherIconsList.push(cloudy, clearDay, rain, snow, clearNight, storm, fog, wind, partlyCloudyDay, partlyCloudyNight);
+
+const icons = [
+  cloudy,
+  clearDay,
+  rain,
+  snow,
+  clearNight,
+  storm,
+  fog,
+  wind,
+  partlyCloudyDay,
+  partlyCloudyNight
+];
+// function choseBackgroundCondition(data) {
+// 	switch (data.currentConditions.conditions) {
+// 		case 'cloudy':
+
+// 		case 'partly-cloudy-day':
+
+// 		case 'partly-cloudy-night':
+
+// 		case 'fog': // fallthrough
+
+// 			return 'cloudy';
+			
+// 		case 'rain':
+// 			return 'rainy';// fallthrough
+
+			
+// 		case 'storm':
+// 			return 'stormy';// fallthrough
+
+			
+// 		case 'snow':
+// 			return 'snowy'; // fallthrough
+
+
+			
+// 		case 'clear-day':
+
+// 		case 'clear-night':
+
+// 		case 'wind': // fallthrough
+
+// 			return 'sunny';
+			
 // 	}
-
-// 	condition.textContent = `Condition: ${getLocation.currentConditions.conditions}`;
-
-// 	console.log(temp);
-// 	console.log(feelsLikeTemp);
-// 	console.log(data.currentConditions.conditions);
-//     return {
-//         address, tempBox, feelsLike, condition
-//     }
 // }
 
-export { fahrenheitToCelsius};
+
+export { fahrenheitToCelsius, weatherIconsList, icons};

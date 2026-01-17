@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather app</title>
+    
 </head>
 <body>
     <header>
         
     </header>
-    <body>
+    <body class="app weather" id="weather">
         <form action="" class="search">
-            <input type="search" name="search" id="search-bar">
-            <label for="switch">Switch to fahrenheit</label>
+            <input type="search" name="search" id="search-bar" placeholder="Enter your city name">
+            <label for="switch" class="toggle">
             <input type="checkbox" name="switch" id="switch">
-            <input type="submit" value="Search" id="submit">
+         <span class="slider"></span></label>
+            <input type="submit" value="Search" id="submit" class="btn">
         </form>
+        
         <div id="weatherHere"></div>
+        <script src="https://kit.fontawesome.com/9e80d3d242.js" crossorigin="anonymous"></script>
     </body>
     
 </body>
