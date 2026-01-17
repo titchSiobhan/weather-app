@@ -1,5 +1,4 @@
-//PJ7RXR8YLKWRNKTRHP9TBEUXM
-//https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/bath?key=PJ7RXR8YLKWRNKTRHP9TBEUXM
+
 import {
 	fahrenheitToCelsius,
 	weatherIconsList,
@@ -14,8 +13,7 @@ import { formatInTimeZone } from 'date-fns-tz';
 
 console.log(weatherIconsList);
 
-// let searchBar =
-// const submit = document.querySelector('#submit');
+
 const form = document.querySelector('.search');
 const weatherContainer = document.querySelector('#weatherHere');
 function currentLocalTime(data) {
@@ -27,26 +25,7 @@ function currentLocalTime(data) {
     });
 }
 
-// function getLocalNowMinutes(data) {
-//     const date = new Date().toLocaleString("en-GB", {
-//         timeZone: data.timezone
-//     });
 
-//     const d = new Date(date);
-//     return d.getHours() * 60 + d.getMinutes();
-// }
-// function convertToMinutes(timeString, data) {
-//     const [h, m, s] = timeString.split(':').map(Number);
-
-//     // Create a Date in the location's timezone
-//     const date = new Date(
-//         new Date().toLocaleString("en-GB", { timeZone: data.timezone })
-//     );
-
-//     date.setHours(h, m, s || 0, 0);
-
-//     return date.getHours() * 60 + date.getMinutes();
-// }
 
 
 function epochTime(data) {
@@ -60,18 +39,10 @@ function epochTime(data) {
     });
 }
 
-// function epochTime(data) {
-// 	const epoch = data.currentConditions.datetimeEpoch * 1000;
-// const date = new Date(epoch);
-// const dataTime = format(date, 'HH:mm');
 
-// return dataTime
-// }
 
 const switchBox = document.querySelector('#switch');
-// const showWeather = document.createElement('div');
 
-//°C = (°F - 32) × 5/9
 const address = document.createElement('div');
 address.setAttribute('class', 'address card');
 address.setAttribute('id', 'address');
@@ -171,18 +142,8 @@ async function backgroundColour(location) {
     const data = await getLocation(location);
 
     const nowMinutes = getLocalNowMinutes(data);
-
     const sunriseMinutes = convertToMinutes(data.currentConditions.sunrise, data);
     const sunsetMinutes  = convertToMinutes(data.currentConditions.sunset, data);
-
-    console.log("Sunrise:", sunriseMinutes);
-    console.log("Sunset:", sunsetMinutes);
-console.log("nowMinutes:", nowMinutes);
-console.log("sunriseMinutes:", sunriseMinutes);
-console.log("sunsetMinutes:", sunsetMinutes);
-console.log("Raw sunrise:", data.currentConditions.sunrise);
-console.log("Raw sunset:", data.currentConditions.sunset);
-
 	let chooseBackgroundTime;
 
 	if (nowMinutes === sunriseMinutes) {
@@ -210,32 +171,23 @@ const condition = primary.replace(/\s+/g, '-');
 
 	switch (data.currentConditions.conditions) {
 		case 'Cloudy':
-
 		case 'Partially cloudy':
-
 		case 'Fog': // fallthrough
-
 			return 'cloudy';
 			
 		case 'Rain':
 			return 'rainy';// fallthrough
-
-			
+	
 		case 'Storm':
 			return 'stormy';// fallthrough
 
-			
 		case 'Snow':
 			return 'snowy'; // fallthrough
 
-
-			
 		case 'Clear day':
-
 		case 'Clear night':
 		case 'Clear':
 		case 'Wind': // fallthrough
-
 			return 'sunny';
 			default:
       return 'sunny';
@@ -257,10 +209,7 @@ const condition = primary.replace(/\s+/g, '-');
 }
 window.addEventListener('DOMContentLoaded' , async () => {
 	const defaultCity = 'London';
-	// getLocation(defaultCity)
-	// weatherDisplay(data)
-	// appendWeather()
-	// 	backgroundColour(data)
+	
 	try {
 		const data = await getLocation(defaultCity);
 		const elements = weatherDisplay(data)
@@ -296,7 +245,7 @@ form.addEventListener('submit', async (e) => {
 });
 
 function weatherConditionIconGet(data) {
-	console.log('weatherConditionIcon WAS CALLED');
+	
 
 	const conditionName = data.currentConditions.icon;
 	const iconObject = icons.find((icon) => icon.name === conditionName);
@@ -312,6 +261,11 @@ function weatherConditionIconGet(data) {
 console.log(data.currentConditions.conditions)
 	return conditionName;
 }
+function trimSeconds(timeString) {
+  return timeString.slice(0, 5); // "07:54"
+}
+
+
 function weatherDisplay(data) {
 	const temp = fahrenheitToCelsius(data.currentConditions.temp);
 	const tempMaxC = fahrenheitToCelsius(data.days[0].tempmax);
@@ -319,38 +273,26 @@ function weatherDisplay(data) {
 	const feelsLikeTemp = fahrenheitToCelsius(data.currentConditions.feelslike);
 	townName.textContent =
 		data.address.charAt(0).toUpperCase() + data.address.slice(1);
-		
-	
-
-
 
 	 time.textContent = currentLocalTime(data);
 
 	if (switchBox.checked) {
-		tempNow.textContent = `Temperature: ${data.currentConditions.temp}°F`;
-		maxTemp.textContent = `Max Temperature: ${data.days[0].tempmax}°F`;
-		minTemp.textContent = `Min Temperature: ${data.days[0].tempmin}°F`;
-		feelsLike.textContent = `Feels Like: ${data.currentConditions.feelslike}°F`;
+		tempNow.textContent = `Temperature: ${Math.floor(data.currentConditions.temp)}°F`;
+		maxTemp.textContent = `Max Temperature: ${Math.floor(data.days[0].tempmax)}°F`;
+		minTemp.textContent = `Min Temperature: ${Math.floor(data.days[0].tempmin)}°F`;
+		feelsLike.textContent = `Feels Like: ${Math.floor(data.currentConditions.feelslike)}°F`;
 	} else {
-		tempNow.textContent = `Temperature: ${temp}°C`;
-		maxTemp.textContent = `Max Temperature: ${tempMaxC}°C`;
-		minTemp.textContent = `Min Temperature: ${tempMinC}°C`;
-		feelsLike.textContent = `Feels Like: ${feelsLikeTemp}°C`;
+		tempNow.textContent = `Temperature: ${Math.floor(temp)}°C`;
+		maxTemp.textContent = `Max Temperature: ${Math.floor(tempMaxC)}°C`;
+		minTemp.textContent = `Min Temperature: ${Math.floor(tempMinC)}°C`;
+		feelsLike.textContent = `Feels Like: ${Math.floor(feelsLikeTemp)}°C`;
 	}
 
 	condition.textContent = `Condition: ${data.currentConditions.conditions}`;
 
-	//  weatherIconsList.forEach(item => {
-	// 	condition.appendChild(item.icon.cloneNode(true));
-	// 	condition.append(' ');
-	//  })
 
-	console.log(temp);
-	console.log(feelsLikeTemp);
-	// console.log(data.currentConditions.icon);
-
-	sunrise.textContent = `Sunrise: ${data.currentConditions.sunrise}`;
-	sunset.textContent = `Sunset: ${data.currentConditions.sunset}`;
+	sunrise.textContent = `Sunrise: ${trimSeconds(data.currentConditions.sunrise)}`;
+	sunset.textContent = `Sunset: ${trimSeconds(data.currentConditions.sunset)}`;
 	windGust.textContent = `Wind Gust: ${data.currentConditions.windgust}MPH`;
 	windSpeed.textContent = `Wind speed: ${data.currentConditions.windspeed}MPH`;
 	humidity.textContent = `Humidity: ${data.currentConditions.humidity}%`;
